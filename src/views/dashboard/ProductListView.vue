@@ -33,7 +33,7 @@ function getData() {
         SweetAlertDOM.value.showErrorAlert(res.data.message);
       }
     }).catch((e) => {
-      SweetAlertDOM.value.showErrorAlert(e.response.data.message);
+      SweetAlertDOM.value.showErrorAlert(e.response.data?.message || e.response);
     });
 }
 function checkAuth() {
@@ -77,7 +77,7 @@ function updateProduct(data) {
       getData();
     }).catch((e) => {
       isLoading.value = false;
-      SweetAlertDOM.value.showErrorAlert(e.response.data.message);
+      SweetAlertDOM.value.showErrorAlert(e.response?.data?.message || e);
     });
 }
 function deleteConfirm(data) {
